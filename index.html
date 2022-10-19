@@ -28,7 +28,7 @@
         <h1 class="heading">Focus Timer</h1>
 
         <div x-data="button">
-          <div x-show="canShow">
+          <div x-show="canShowGoalButton">
             <button class="timer__toggle-button">Set Daily Goal</button>
           </div>
         </div>
@@ -58,11 +58,11 @@
 
     document.addEventListener('alpine:init', () => {
       Alpine.data('button', () => ({
-        canShow: true,
+        canShowGoalButton: false,
 
         init() {
           setTimeout(() => {
-            this.canShow = false;
+            this.canShowGoalButton = false;
           }, 5000);
         },
 
