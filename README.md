@@ -1,14 +1,25 @@
-# Feature flags in Alpine.js sample (WIP 🚧)
+# How to use feature flags with Alpine.js (WIP 🚧)
 
 [Read the blog post here](https://configcat.com/blog/)
 
-A few words about the contents of the repository. Whats is this application about, what does it demonstrate? Add a backlink to https://configcat.com
+This is a fictional productivity app created to demonstrate feature flags in Alpine.js. The article walks you through the steps to deploy the **Set Daily Goal** button as the new feature. With [ConfigCat's feature flag service](https://configcat.com/), this new component can be deployed by remotely switching on its feature flag without having to edit and redeploy the app.
+
+![Screenshot of sample app](./screenshot_of_sample_app.png)
 
 ## Build & Run
 
 Instructions on how to build and run the application locally. A student or junior developer should be able to run the application.
-- Prerequisites
-- Steps, commands to run
+
+### Prerequisites
+
+- A code editor (e.g. [Visual Studio Code](https://code.visualstudio.com/))
+- Basic JavaScript and [Alpine.js knowledge](https://alpinejs.dev/)
+
+### Steps to run the app
+
+**1.** Clone this code repository.
+
+**2.** Open the `index.html` file in your browser.
 
 ## Learn more
 
