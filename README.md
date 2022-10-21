@@ -1,4 +1,4 @@
-# How to use feature flags with Alpine.js (WIP 🚧)
+# How to use feature flags with Alpine.js
 
 [Read the blog post here](https://configcat.com/blog/)
 
@@ -7,8 +7,6 @@ This is a fictional productivity app created to demonstrate feature flags in Alp
 ![Screenshot of sample app](./screenshot_of_sample_app.png)
 
 ## Build & Run
-
-Instructions on how to build and run the application locally. A student or junior developer should be able to run the application.
 
 ### Prerequisites
 
