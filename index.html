@@ -1,79 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <!-- Stylesheets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-  <!-- Stylesheets -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <!-- Scripts -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/configcat-js@latest/dist/configcat.min.js"
+    ></script>
+  </head>
 
-  <!-- Scripts -->
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/configcat-js@latest/dist/configcat.min.js"></script>
+  <body>
+    <main>
+      <div class="container">
+        <div>
+          <h1 class="heading">Focus Timer</h1>
 
-
-</head>
-
-<body>
-  <main>
-    <div class="container">
-
-      <div>
-        <h1 class="heading">Focus Timer</h1>
-
-        <div x-data="button">
-          <div x-show="canShowGoalButton">
-            <button class="timer__toggle-button">Set Daily Goal</button>
+          <div x-data="button">
+            <div x-show="canShowGoalButton">
+              <button class="timer__toggle-button">Set Daily Goal</button>
+            </div>
           </div>
         </div>
 
-      </div>
-
-
-      <div class="timer">
-        <div class="timer__wrapper--internal">
-          <button class="timer__button">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-player-play" width="24"
-              height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-              stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M7 4v16l13 -8z" />
-            </svg>
-          </button>
-          <div class="timer__text">Time Elapsed</div>
+        <div class="timer">
+          <div class="timer__wrapper--internal">
+            <button class="timer__button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-player-play"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M7 4v16l13 -8z" />
+              </svg>
+            </button>
+            <div class="timer__text">Time Elapsed</div>
+          </div>
         </div>
       </div>
+    </main>
 
-    </div>
-  </main>
+    <script>
+      document.addEventListener("alpine:init", () => {
+        let configCatClient = configcat.createClient(
+          "97LaCNOiYEiAQ6vQZzZ3iw/YkA8As5bz0qZhOQq_kwHfw"
+        );
 
+        Alpine.data("button", () => ({
+          canShowGoalButton: false,
 
-  <script>
-
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('button', () => ({
-        canShowGoalButton: false,
-
-        init() {
-          setTimeout(() => {
-            this.canShowGoalButton = false;
-          }, 5000);
-        },
-
-      }))
-
-
-    })
-
-
-  </script>
-
-</body>
-
+          init() {
+            configCatClient
+              .getValueAsync("canshowgoalbutton", false)
+              .then((value) => {
+                this.canShowGoalButton = value;
+              });
+          },
+        }));
+      });
+    </script>
+  </body>
 </html>
